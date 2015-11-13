@@ -10,6 +10,10 @@ var boatSchema = new mongoose.Schema ({
   photoUrl    : String
 });
 
+boatSchema.methods.showPhoto = function() {
+  return '/img/' + this.photoUrl;
+};
+
 var Boat = mongoose.model('Boat', boatSchema);
 
 module.exports = Boat;

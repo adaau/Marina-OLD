@@ -1,5 +1,5 @@
 var express        = require ('express'),
-    router        = express.Router(),
+    router         = express.Router(),
     bodyParser     = require('body-parser'),
     methodOverride = require('method-override');
 
@@ -11,9 +11,11 @@ router.get('/', function(req, res) {
 
 // INDEX
 router.get('/boats', function(req, res) {
-  Boat.find({}, function(err, boats) {
-    res.render('boats/index', { boats: boats});
-  });
+  Boat.find({})
+      .sort({ length: -1 })
+      .exec(function(err, boats) {
+        res.render('boats/index', { boats: boats});
+      });
 });
 
 // NEW

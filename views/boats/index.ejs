@@ -12,6 +12,7 @@
           <h6>Capacity:   <%= boat.capacity %></h6>
           <h6>Year:       <%= boat.year     %></h6>
           <h6>Photo URL:  <%= boat.photoUrl %></h6>
+          <img src="<%= boat.showPhoto() %>" />
           <a href="/boats/<%= boat.id %>">Show</a>
         <% }) %>
       </div>
