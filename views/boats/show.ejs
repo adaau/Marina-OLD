@@ -1,17 +1,25 @@
 <% include ../partials/nav %>
+<div class="container">
+  <div class="row">
 
-<h1>Boat Details</h1>
+    <h1>Boat Details</h1>
+    <ul>
+        <li>Name:       <%= boat.name     %></li>
+        <li>Type:       <%= boat.type     %></li>
+        <li>Make:       <%= boat.make     %></li>
+        <li>Length:     <%= boat.length   %></li>
+        <li>Capacity:   <%= boat.capacity %></li>
+        <li>Year:       <%= boat.year     %></li>
+        <li>Photo URL:  <%= boat.photoUrl %></li>
+    </ul>
 
-<ul>
-    <li>Name:       <%= boat.name     %></li>
-    <li>Type:       <%= boat.type     %></li>
-    <li>Make:       <%= boat.make     %></li>
-    <li>Length:     <%= boat.length   %></li>
-    <li>Capacity:   <%= boat.capacity %></li>
-    <li>Year:       <%= boat.year     %></li>
-    <li>Photo URL:  <%= boat.photoUrl %></li>
-</ul>
+    <span>
+      <a href="/boats/<%= boat.id %>/delete" class="btn btn-danger btn-large">Delete</a>
+    </span>
 
-<a href="/boats/<%= boat.id %>/edit" class="button">Update</a>
-<br>
-<a href="/boats/<%= boat.id %>/delete" class="button">Delete</a>
+    <span>
+      <a href="/boats/<%= boat.id %>/edit" class="btn btn-info btn-large">Update</a>
+    </span>
+
+  </div>
+</div>

@@ -6,7 +6,7 @@ body {
 }
 
 a {
-    color: yellowgreen;
+    color: #0099ff;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -15,10 +15,6 @@ a {
 a:hover,
 a:focus {
     color: forestgreen;
-}
-
-.new-page {
-    margin-top: 200px;
 }
 
 p {
@@ -30,16 +26,9 @@ div.inline {
     display: inline;
 }
 
-a.button {
-  display: block;
-  width: 115px;
-  height: 25px;
-  background: #4E9CAF;
-  padding: 10px;
-  text-align: center;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
+li.inline {
+    display: inline;
+    list-style-type: none;
 }
 
 header {
