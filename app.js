@@ -11,7 +11,8 @@ var router = express.Router();
 var port = process.env.PORT || 3000;
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1/boat');
+var mongoUri =  process.env.MONGOLAB_URI || 'mongodb://127.0.0.1/';
+moongoose.connect(mongoUri);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -48,5 +49,5 @@ app.use(function(err, req, res, next) {
 
 app.use(require('./controllers/boats'));
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000 )
 console.log('Server has Awaken...');
