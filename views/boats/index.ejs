@@ -1,18 +1,20 @@
 <% include ../partials/nav %>
-<div class="container top">
+<div class="container">
   <div class="row">
     <h1>Boats</h1>
-    <ul>
-      <% boats.forEach(function(boat) { %>
-        <h3><li><%= boat.name     %></h3></li>
-        <li>Type:       <%= boat.type     %></li>
-        <li>Make:       <%= boat.make     %></li>
-        <li>Length:     <%= boat.length   %></li>
-        <li>Capacity:   <%= boat.capacity %></li>
-        <li>Year:       <%= boat.year     %></li>
-        <li>Photo URL:  <%= boat.photoUrl %></li>
-      <% }) %>
-        <a href="/boats/<%= boat.id %>">Show</a>
-    </ul>
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <div class="col-xs-6 col-sm-4 col-md-3 inline">
+        <% boats.forEach(function(boat) { %>
+          <h3><%= boat.name     %></h3>
+          <h6>Type:       <%= boat.type     %></h6>
+          <h6>Make:       <%= boat.make     %></h6>
+          <h6>Length:     <%= boat.length   %></h6>
+          <h6>Capacity:   <%= boat.capacity %></h6>
+          <h6>Year:       <%= boat.year     %></h6>
+          <h6>Photo URL:  <%= boat.photoUrl %></h6>
+          <a href="/boats/<%= boat.id %>">Show</a>
+        <% }) %>
+      </div>
+    </div>
   </div>
 </div>
