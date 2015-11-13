@@ -11,8 +11,8 @@ var router = express.Router();
 var port = process.env.PORT || 3000;
 
 var mongoose = require('mongoose');
-var mongoUri =  process.env.MONGOLAB_URI || 'mongodb://127.0.0.1/';
-moongoose.connect(mongoUri);
+var mongoUri =  process.env.MONGOLAB_URI || 'mongodb://127.0.0.1/boat';
+mongoose.connect(mongoUri);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
