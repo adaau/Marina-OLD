@@ -1,0 +1,14 @@
+<h1>Boat</h1>
+
+<ul>
+    <li>Name:       <%= boat.name     %></li>
+    <li>Type:       <%= boat.type     %></li>
+    <li>Make:       <%= boat.make     %></li>
+    <li>Length:     <%= boat.length   %></li>
+    <li>Capacity:   <%= boat.capacity %></li>
+    <li>Year:       <%= boat.year     %></li>
+    <li>Photo URL:  <%= boat.photoUrl %></li>
+</ul>
+
+<a href="/boats/<%= boat.id %>/edit" class="button">Update</a>
+<a href="/boats/<%= boat.id %>/delete" class="button">Delete</a>

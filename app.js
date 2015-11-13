@@ -1,9 +1,10 @@
-var express    = require('express');
-var path       = require('path');
-var debug      = require('debug');
-var logger     = require('morgan');
-var bodyParser = require('body-parser');
-var expressLayouts = require('express-ejs-layouts');
+var express         = require('express');
+var path            = require('path');
+var debug           = require('debug');
+var logger          = require('morgan');
+var bodyParser      = require('body-parser');
+var expressLayouts  = require('express-ejs-layouts');
+var methodOverride = require('method-override');
 
 var app        = express();
 var router = express.Router();
@@ -15,11 +16,13 @@ mongoose.connect('mongodb://127.0.0.1/boat');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'))
 
+app.use(express.static(__dirname + '/public'));
 app.set('views', './views');
 app.set('view engine', 'ejs');
 app.engine('ejs', require('ejs').renderFile);
-// app.use(expressLayouts);
+app.use(expressLayouts);
 
 // development error handler
 // will print stacktrace
