@@ -9,18 +9,14 @@ h2 {
   font-weight: bold;
 }
 
-h3,
-h4 {
-  font-family: Avenir, 'Avenir Next', Helvetica, Arial, sans-serif;
-}
-
+h3
+h4,
 h5 {
-  font-family: Georgia, Times, 'Times New Roman', serif;
+  font-family: Avenir, 'Avenir Next', Helvetica, Arial, sans-serif;
 }
 
 h6 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: bold;
 }
 
 p {
@@ -105,10 +101,28 @@ body#homepage .header-content .header-content-inner p {
   color: rgba(255,255,255,0.7);
 }
 
-/*body#homepage .header-content-btn {
-  margin: 350px 0 20px;
-}
-*/
 body#homepage a.btn-heading {
   width: 200px;
+}
+
+/*Index*/
+body#index ul.boat-list {
+  list-style-type: none;
+}
+
+body#index li {
+  display: inline;
+}
+
+body#index h5 {
+  margin-bottom: 5px;
+}
+
+body#index h6 {
+  margin-top: 0;
+}
+
+.thumb {
+    margin-right: 5px;
+    margin-bottom: 30px;
 }

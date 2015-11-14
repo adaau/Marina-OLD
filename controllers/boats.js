@@ -65,7 +65,7 @@ router.put('/boats/:id', function(req, res) {
 });
 
 // DELETE
-router.post('/boats/:id/delete', function(req, res) {
+router.get('/boats/:id/delete', function(req, res) {
   Boat.findByIdAndRemove(req.params.id, function(err, boat) {
     if (err) {
       res.send("error " + err);
