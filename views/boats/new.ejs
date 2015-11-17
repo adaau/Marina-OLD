@@ -4,22 +4,26 @@
     <h1>Add a Boat</h1>
     <form method="post" action="/boats">
       <div class="form-group">
-        <input name="boat[name]" type="text" placeholder="Name" class="form-control">
+        <input name="boat[name]" type="text" placeholder="Listing Name. Be Descriptive" maxlength="35" class="form-control">
       </div>
       <div class="form-group">
-        <input name="boat[type]" type="text" placeholder="Type" class="form-control">
+        <select name="boat[type]">
+          <option value="Motor Yacht">Motor Yacht</option>
+          <option value="Sailboat">Sailboat</option>
+        </select>
+        <!-- <input name="boat[type]" type="text" placeholder="Type" class="form-control"> -->
       </div>
       <div class="form-group">
         <input name="boat[make]" type="text" placeholder="Make" class="form-control">
       </div>
       <div class="form-group">
-        <input name="boat[length]" type="text" placeholder="Length" class="form-control">
+        <input name="boat[length]" type="text" placeholder="Length (feet)" class="form-control">
       </div>
       <div class="form-group">
-        <input name="boat[capacity]" type="text" placeholder="Capacity" class="form-control">
+        <input name="boat[capacity]" type="text" placeholder="Capacity (number of people)" class="form-control">
       </div>
       <div class="form-group">
-        <input name="boat[year]" type="text" placeholder="Year" class="form-control">
+        <input name="boat[year]" type="text" placeholder="Year Built" class="form-control">
       </div>
       <div class="form-group">
         <input name="boat[photoUrl]" type="text" placeholder="Photo URL" class="form-control">

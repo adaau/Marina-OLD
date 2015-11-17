@@ -1,16 +1,17 @@
 <% include ../partials/nav %>
-<div class="container">
+<div class="container" id="show">
   <div class="row">
 
-    <h1>Boat Details</h1>
+    <h1><%= boat.name     %></h1>
+    <div class="container-img">
+      <img src="<%= boat.showPhoto() %>">
+    </div>
     <ul>
-        <li>Name:       <%= boat.name     %></li>
         <li>Type:       <%= boat.type     %></li>
         <li>Make:       <%= boat.make     %></li>
         <li>Length:     <%= boat.length   %></li>
         <li>Capacity:   <%= boat.capacity %></li>
         <li>Year:       <%= boat.year     %></li>
-        <li>Photo URL:  <%= boat.photoUrl %></li>
     </ul>
 
     <span>
