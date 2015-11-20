@@ -1,12 +1,12 @@
 var express         = require('express');
+var mongoose        = require('mongoose');
 var path            = require('path');
 var debug           = require('debug');
 var logger          = require('morgan');
 var cookieParser    = require('cookie-parser');
 var bodyParser      = require('body-parser');
-var expressLayouts  = require('express-ejs-layouts');
 var methodOverride  = require('method-override');
-var mongoose        = require('mongoose');
+var expressLayouts  = require('express-ejs-layouts');
 var passport        = require('passport');
 var flash           = require('connect-flash');
 var session         = require('express-session');
@@ -64,7 +64,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.use(require('./controllers/boats'));
+var routes = require('./config/routes');
+app.use(routes);
 
-app.listen(process.env.PORT || 3000 )
+app.listen(process.env.PORT || 3000 );
 console.log('Server has Awaken...');

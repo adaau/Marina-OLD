@@ -1,79 +1,94 @@
-var express        = require ('express'),
-    router         = express.Router(),
-    bodyParser     = require('body-parser'),
-    methodOverride = require('method-override');
-
 var Boat = require('../models/boat');
 
-router.get('/', function(req, res) {
+function home(req, res) {
   res.render('home');
-});
+}
 
 // INDEX
-router.get('/boats', function(req, res) {
+function getBoats(req, res) {
   Boat.find({})
       .sort({ length: -1 })
       .exec(function(err, boats) {
-        res.render('boats/index', { boats: boats});
+        if (err) {
+          res.json( {message: 'Could not find boat b/c: ' + err});
+        }
+        else {
+          res.render('boats', {boats: boats});
+        }
       });
-});
+}
 
 // NEW
-router.get('/boats/new', function(req, res) {
+function newBoat(req, res) {
   Boat.find({}, function(err, boats) {
     res.render('boats/new', { boats: boats});
   });
-});
+}
 
 // CREATE
-router.post('/boats', function(req, res) {
+function createBoat(req, res) {
   Boat.create(req.body.boat, function(err, boat) {
     if (err) {
-      res.send("something wrong happened " + err);
+      res.json( {message: 'Problem creating boat. ' + err});
     }
     else {
       res.redirect('/boats');
     }
   });
-});
+}
 
 // SHOW
-router.get('/boats/:id', function(req, res) {
-  boat = Boat.findById(req.params.id);
-  Boat.findById(req.params.id, function(err, boat) {
-    res.render('boats/show', { boat: boat});
+function getBoat(req, res) {
+  var id = req.params.id;
+
+  Boat.findById({_id: id}, function(err, boat) {
+    if (err) {
+      res.json( {message: 'Could not find boat b/c: ' + err});
+    }
+    else {
+      res.render('boats/show', { boat: boat});
+    }
   });
-});
+}
+
+// UDPATE
+function updateBoat(req, res) {
+  Boat.findByIdAndUpdate(req.params.id, req.body.boat, function(err, boat) {
+    if (err) {
+      res.json( {message: 'Could not update boat b/c: ' + err} );
+    }
+    else {
+      res.redirect('/boats');
+    }
+  });
+}
 
 // EDIT
-router.get('/boats/:id/edit', function(req, res) {
+function editBoat(req, res) {
   Boat.findById(req.params.id, function(err, boat) {
     res.render('boats/edit', { boat: boat});
   });
-});
-
-// UDPATE
-router.put('/boats/:id', function(req, res) {
-  Boat.findByIdAndUpdate(req.params.id, req.body.boat, function(err, boat) {
-    if (err) {
-      res.send("error " + err);
-    }
-    else {
-      res.redirect('/boats');
-    }
-  });
-});
+}
 
 // DELETE
-router.get('/boats/:id/delete', function(req, res) {
+function removeBoat(req, res) {
   Boat.findByIdAndRemove(req.params.id, function(err, boat) {
     if (err) {
-      res.send("error " + err);
+      res.json( {message: 'Could not delete boat b/c: ' + err});
     }
     else {
       res.redirect('/boats');
     }
   });
-})
+}
 
-module.exports = router;
+module.exports = {
+  home:         home,
+  getBoats:     getBoats,
+  newBoat:      newBoat,
+  createBoat:   createBoat,
+  getBoat:      getBoat,
+  editBoat:     editBoat,
+  updateBoat:   updateBoat,
+  removeBoat:   removeBoat
+}
