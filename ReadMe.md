@@ -1,10 +1,10 @@
 #About
 MARINA is a boat-sharing app to connect boat owners and boat renters.
 
-The premise behind this "sharing economy" app is to create a marketplace for boats: owners seldom use their boats; renters don't have access to boats. By using the app, owners can monetize their boats during idle time while renters get access to a huge supply of boats.
+The premise behind this "sharing economy" app is to create a marketplace for boats: owners, who seldom use their boats, can monetize their boats during idle time and offset some of the huge operating costs; renters, who don't have access to boats, can now have access to a huge supply of boats.
 
 #Features
-##Owners can:
+###Owners can:
 * List a boat, with fields including:
   - Description
   - Type
@@ -15,7 +15,7 @@ The premise behind this "sharing economy" app is to create a marketplace for boa
 * Upload photos of boat
 * Display listing with map
 
-##Renters can:
+###Renters can:
 * See an index of boats
 * Search for boats by area, type, and availability
 * See reviews of boats
